@@ -12,8 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/users', 'PagesController@users')->name('users');
+Route::get('/about', 'PagesController@about')->name('about');
+Route::get('/faqs', 'PagesController@faqs')->name('faqs');
+Route::get('/library', 'PagesController@library')->name('library');
+Route::get('/profile', 'PagesController@profile')->name('profile');
 
 Auth::routes();
 
