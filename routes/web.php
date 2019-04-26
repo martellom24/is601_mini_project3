@@ -19,7 +19,7 @@ Route::get('/users', 'PagesController@users')->name('users');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/faqs', 'PagesController@faqs')->name('faqs');
 Route::get('/library', 'PagesController@library')->name('library');
-Route::get('/profile', 'PagesController@profile')->name('profile');
+Route::get('/profileTest', 'PagesController@profileTest')->name('profileTest');
 Route::get('/subscription', 'PagesController@subscription')->name('subscription');
 Route::get('/subscribers', 'PagesController@subscribers')->name('subscribers');
 

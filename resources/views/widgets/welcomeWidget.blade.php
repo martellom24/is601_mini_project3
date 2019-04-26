@@ -9,6 +9,6 @@
         Welcome <span class="text-secondary">{{ Auth::user()->name }}</span>! You are logged in!
     @endif
     <p class="lead">
-        <a class="btn btn-primary btn-lg" href="{{route('profile')}}" role="button">My Account</a>
+        <a class="btn btn-primary btn-lg" href="{{route('profileTest')}}" role="button">My Account</a>
     </p>
 </div>
