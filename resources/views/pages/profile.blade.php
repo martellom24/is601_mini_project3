@@ -34,6 +34,36 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card border-primary mb-3">
+                                <div class="card-header">
+                                    <h5 class="card-title">My Status</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">name: {{ Auth::user()->status }}</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p class="card-text">Start of membership:<br>
+                                                    @if(Auth::user()->status == 1)
+                                                        Yes since {{Auth::user()->created_at}}
+                                                    @else
+                                                        No -> <a href="#">set membership status?</a>
+                                                    @endif
+                                                </p>
+                                            </div>
+                                            <div class="col-3">
+                                                <p class="card-text">Type of membership:<br>
+                                                    @if(Auth::user()->status == 1 )
+                                                        Basic {{--since {{$user->created_at}}--}}
+                                                    @else
+                                                        No
+                                                    @endif
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-3 offset-1">
                             <section id="account_image" class="">
