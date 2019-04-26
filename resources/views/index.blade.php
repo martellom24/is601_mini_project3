@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="content">
-        <div class="title m-b-md">
+        <div class="title text-center m-b-md">
             IS601 Mini Project 3
         </div>
         <div class="text-center my-4">

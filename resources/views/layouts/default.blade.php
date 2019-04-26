@@ -35,19 +35,15 @@
             position: relative;
         }
 
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
+        /*.top-right {*/
+        /*    position: absolute;*/
+        /*    right: 10px;*/
+        /*    top: 18px;*/
+        /*}*/
         .top-left {
             position: absolute;
             left: 10px;
             top: 18px;
-        }
-
-        .content {
-            text-align: center;
         }
 
         .title {
@@ -70,30 +66,25 @@
     </style>
 </head>
 <body>
-<div class="flex-center position-ref pb-5">
-    <div class="top-left link">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('about')}}">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('faqs')}}">FAQs</a>
-            </li>
-        </ul>
-    </div>
-    @if (Route::has('login'))
-        <div class="top-right links">
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">martellom</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="{{route('about')}}">About</a>
+        <a class="p-2 text-dark" href="{{route('faqs')}}">FAQs</a>
+        <a class="p-2 text-dark" href="{{route('subscription')}}">Subscription</a>
+
+        @if (Route::has('login'))
             @auth
-                <a href="{{ url('/home') }}">Home</a>
+                <a class="p-2 text-dark" href="{{ url('/home') }}">Home</a>
             @else
-                <a href="{{ route('login') }}">Login</a>
+                <a class="p-2 text-dark" href="{{ route('login') }}">Login</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
+                    <a class="p-2 text-dark" href="{{ route('register') }}">Register</a>
                 @endif
             @endauth
-        </div>
-    @endif
+        @endif
+    </nav>
 </div>
 <main role="main">
     @yield('content')

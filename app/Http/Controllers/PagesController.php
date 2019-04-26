@@ -12,6 +12,11 @@ class PagesController extends Controller
         return view('pages.about');
     }
 
+    public function profile()
+    {
+        return view('pages.profile');
+    }
+
     public function faqs()
     {
         $posts = DB::table('posts')->get();
@@ -33,8 +38,15 @@ class PagesController extends Controller
         return view('pages.users', ['users' => $users]);
     }
 
-    public function profile()
+    public function subscription()
     {
-        return view('pages.profile');
+        return view('pages.subscription');
+    }
+
+    public function subscribers()
+    {
+        $users = DB::table('users')->get();
+
+        return view('pages.subscribers', ['users' => $users]);
     }
 }

@@ -19,8 +19,7 @@
                                             <tr>
                                                 <th scope="col">Account ID</th>
                                                 <th scope="col">Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">History</th>
+                                                <th scope="col">Subscription Status</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -28,8 +27,13 @@
                                                 <tr>
                                                     <th scope="row">{{$user->id}}</th>
                                                     <td>{{$user->name}}</td>
-                                                    <td>{{$user->email}}</td>
-                                                    <td>{{$user->created_at}}</td>
+                                                    <td>
+                                                        @if($user->status == 1)
+                                                            Yes
+                                                        @else
+                                                            No
+                                                        @endif
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                             </tbody>

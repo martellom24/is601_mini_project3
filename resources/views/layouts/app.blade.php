@@ -69,7 +69,9 @@
         </nav>
 
         <main class="main" role="main">
+
             @yield('content')
+
         </main>
     </div>
 @include('includes.jsfooter')

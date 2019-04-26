@@ -20,6 +20,8 @@ Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/faqs', 'PagesController@faqs')->name('faqs');
 Route::get('/library', 'PagesController@library')->name('library');
 Route::get('/profile', 'PagesController@profile')->name('profile');
+Route::get('/subscription', 'PagesController@subscription')->name('subscription');
+Route::get('/subscribers', 'PagesController@subscribers')->name('subscribers');
 
 Auth::routes();
 

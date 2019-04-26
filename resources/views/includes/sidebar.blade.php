@@ -21,9 +21,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('subscribers')}}">
                     <span data-feather="shopping-cart"></span>
-                    Subscriptions
+                    Subscribers
                 </a>
             </li>
             <li class="nav-item">
