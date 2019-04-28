@@ -35,9 +35,10 @@ class PagesController extends Controller
 
     public function users()
     {
-        $users = DB::table('users')->get();
+        //$users = DB::table('users')->get();
+        $profiles = DB::table('profiles')->get();
 
-        return view('pages.users', ['users' => $users]);
+        return view('pages.users', ['profiles' => $profiles]);
     }
 
     public function subscription()

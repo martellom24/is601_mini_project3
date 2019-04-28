@@ -16,13 +16,13 @@
                                     <ul class="navbar-nav mr-5 pr-5">
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Filter 1
+                                                Filter by Post Type
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Title</a>
+                                                <a class="dropdown-item" href="#">Body</a>
                                                 <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Something else here</a>
+                                                <a class="dropdown-item" href="#">Account #</a>
                                             </div>
                                         </li>
                                         <li class="nav-item dropdown">
@@ -64,6 +64,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{$post->title}}</h5>
                                     <p class="card-text">{{$post->body}}</p>
+                                    <p class="card-text">{{$post->updated_at}}</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>

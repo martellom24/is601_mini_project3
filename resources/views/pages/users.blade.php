@@ -18,20 +18,23 @@
                                             <thead class="thead-dark">
                                             <tr>
                                                 <th scope="col">Account ID</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Email</th>
+                                                <th scope="col">First Name</th>
+                                                <th scope="col">Last Night</th>
+{{--                                                <th scope="col">Email</th>--}}
                                                 <th scope="col">History</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($users as $user)
+                                            @foreach($profiles as $profile)
                                                 <tr>
-                                                    <th scope="row">{{$user->id}}</th>
-                                                    <td>{{$user->name}}</td>
-                                                    <td>{{$user->email}}</td>
-                                                    <td>{{$user->created_at}}</td>
+                                                    <th scope="row">{{$profile->user_id}}</th>
+                                                    <td>{{$profile->fname}}</td>
+                                                    <td>{{$profile->lname}}</td>
+{{--                                                    <td>{{$profile->email}}</td>--}}
+                                                    <td>{{$profile->created_at}}</td>
                                                 </tr>
                                             @endforeach
+
                                             </tbody>
                                         </table>
                                     </div>
