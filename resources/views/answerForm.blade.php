@@ -27,8 +27,10 @@
                                     </button>
                                     {!! Form::close() !!}
                                 </div>
-
                             </div>
+                        </div>
+                        <div class="col-3 offset-1">
+                            @include('widgets.cardsWidget')
                         </div>
                     </div>
                 </div>

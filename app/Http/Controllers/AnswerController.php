@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Answer;
 use App\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class AnswerController extends Controller
@@ -50,7 +51,7 @@ class AnswerController extends Controller
         $Answer->user()->associate(Auth::user());
         $Answer->question()->associate($question);
         $Answer->save();
-        return redirect()->route('questions.show', ['question_id' => $question->id])->with('message', 'Saved');
+        return redirect()->route('question.show', ['question_id' => $question->id])->with('message', 'Saved');
     }
 
     /**
@@ -111,7 +112,7 @@ class AnswerController extends Controller
     {
         $answer = Answer::find($answer);
         $answer->delete();
-        return redirect()->route('questions.show', ['question_id' => $question])->with('message', 'Delete');
+        return redirect()->route('question.show', ['question_id' => $question])->with('message', 'Delete');
 
     }
 }
