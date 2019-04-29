@@ -25,18 +25,25 @@
                                                         <div class="card-header">
                                                             <small class="text-muted">
                                                                 Updated: {{ $question->created_at->diffForHumans() }}
-                                                                Answers: {{ $question->answer()->count() }}
+                                                                Answers: {{ $question->answers()->count() }}
                                                             </small>
                                                         </div>
                                                         <div class="card-body">
                                                             <p class="card-text">{{$question->body}}</p>
                                                         </div>
                                                         <div class="card-footer">
-                                                            <a href="{{route('question.show', ['id', $question->id])}}" class="btn btn-primary">View</a>
+                                                            <a href="{{ route('question.show', ['id' => $question->id]) }}" class="btn btn-primary">
+                                                                View
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div>
+                                            {{ $questions->links() }}
                                         </div>
                                     </div>
                                 </div>
