@@ -13,7 +13,7 @@
                             <div class="row mb-4">
                                 <div class="col-12">
                                     <div class="card">
-                                        <div class="card-header">Question</div>
+
                                         <div class="card-body">
                                             {{$question->body}}
                                         </div>
