@@ -2,11 +2,11 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Model;
+use App\Answer;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Answer::class, function (Faker $faker) {
     return [
-        //
+        'body' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
     ];
 });
