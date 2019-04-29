@@ -9,6 +9,11 @@
         Welcome <span class="text-secondary">{{ Auth::user()->name }}</span>! You are logged in!
     @endif
     <p class="lead">
-        <a class="btn btn-primary btn-lg" href="{{route('profileTest')}}" role="button">My Account</a>
+        @if(Auth::user()->profile)
+            <a class="btn btn-primary btn-lg" role="button" href="{{ route('profile.show', ['user_id' => Auth::user()->id, 'profile_id' => Auth::user()->profile->id]) }}">My Account</a>
+        @else
+            <a class="btn btn-primary btn-lg" role="button" href="{{ route('profile.create', ['user_id' => Auth::user()->id]) }}">Create Profile</a>
+        @endif
+
     </p>
 </div>

@@ -19,10 +19,16 @@ Route::get('/users', 'PagesController@users')->name('users');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/faqs', 'PagesController@faqs')->name('faqs');
 Route::get('/library', 'PagesController@library')->name('library');
-Route::get('/profileTest', 'PagesController@profileTest')->name('profileTest');
+
+Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name('profile.show');
+
 Route::get('/subscription', 'PagesController@subscription')->name('subscription');
 Route::get('/subscribers', 'PagesController@subscribers')->name('subscribers');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resources([
+    'question' => 'QuestionController',
+]);

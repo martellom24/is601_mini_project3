@@ -16,7 +16,7 @@ class PagesController extends Controller
     {
         $users = DB::table('users')->get();
 
-        return view('pages.profileTest', ['users' => $users]);
+        return view('pages.profile', ['users' => $users]);
     }
 
     public function faqs()

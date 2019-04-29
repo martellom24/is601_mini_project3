@@ -13,22 +13,22 @@
                             <div class="card border-primary mb-3">
                                 <div class="card-header">
                                     <h5 class="card-title">My Account</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">name: {{ Auth::user()->name }}</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted">name: {{ $profile->fname }}&nbsp;{{ $profile->lname }}</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-3">
-                                                <p class="card-text">Account #:<br> {{Auth::user()->id}}</p>
+                                                <p class="card-text">Account #:<br> {{$profile->id}}</p>
                                             </div>
                                             <div class="col-3">
-                                                <p class="card-text">Email: <br>{{Auth::user()->email}}</p>
+                                                <p class="card-text">Email: <br>{{$profile->email}}</p>
                                             </div>
                                             <div class="col-3">
                                                 <p class="card-text">Password: <br><a href="#" class="card-link">Card link</a></p>
                                             </div>
                                             <div class="col-3">
-                                                <p class="card-text">History: <br>{{Auth::user()->created_at}}</p>
+                                                <p class="card-text">History: <br>{{$profile->created_at}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -37,7 +37,7 @@
                             <div class="card border-primary mb-3">
                                 <div class="card-header">
                                     <h5 class="card-title">My Status</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">name: {{ Auth::user()->status }}</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted">name: {{ $profile->status }}</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="container">
