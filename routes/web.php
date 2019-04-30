@@ -49,3 +49,6 @@ Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@d
 Route::resources([
     'question' => 'QuestionController',
 ]);
+
+Route::get('subscription', ['as'=>'subscription','uses'=>'HomeController@subscription']);
+Route::post('subscription', ['as'=>'post-subscription','uses'=>'HomeController@postSubscription']);
