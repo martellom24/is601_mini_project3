@@ -60,12 +60,12 @@
                         @foreach($posts as $post)
                         <div class="col-3">
                             <div class="card m-3">
-                                <img class="card-img-top" src="http://placehold.it/250x125" alt="Card image cap" />
+                                <img class="card-img-top" src="{{$post->images}}" alt="Card image cap" />
                                 <div class="card-body">
                                     <h5 class="card-title">{{$post->title}}</h5>
                                     <p class="card-text">{{$post->body}}</p>
-                                    <p class="card-text">{{$post->updated_at}}</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <p class="card-text">{{$post->created_at}}</p>
+                                    <a href="{{$post->link}}" class="btn btn-primary" target="_blank" rel="noopener">Go somewhere new</a>
                                 </div>
                             </div>
                         </div>
