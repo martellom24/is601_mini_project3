@@ -70,8 +70,6 @@
     <h5 class="my-0 mr-md-auto font-weight-normal">martellom</h5>
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="{{route('about')}}">About</a>
-        <a class="p-2 text-dark" href="{{route('faqs')}}">FAQs</a>
-        <a class="p-2 text-dark" href="{{route('subscription')}}">Subscription</a>
 
         @if (Route::has('login'))
             @auth

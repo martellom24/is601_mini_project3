@@ -16,42 +16,15 @@
                                     <ul class="navbar-nav mr-5 pr-5">
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Filter by Post Type
+                                                Filter by:
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                                <a class="dropdown-item" href="#">Title</a>
-                                                <a class="dropdown-item" href="#">Body</a>
+                                                <a id="post_ID_sort" class="dropdown-item" href="#">Post ID</a>
                                                 <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Account #</a>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Filter 2
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Filter 3
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Something else here</a>
+                                                <a id="post_title_sort" class="dropdown-item" href="#">Post Title</a>
                                             </div>
                                         </li>
                                     </ul>
-                                    <form class="form-inline my-2 my-lg-0">
-                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                                    </form>
                                 </div>
                             </nav>
                         </div>
@@ -59,7 +32,7 @@
                     <div class="row py-3">
                         @foreach($posts as $post)
                         <div class="col-3">
-                            <div class="card m-3">
+                            <div id="{{$post->id}}" class="card m-3">
                                 <img class="card-img-top" src="{{$post->images}}" alt="Card image cap" />
                                 <div class="card-body">
                                     <h5 class="card-title">{{$post->title}}</h5>
@@ -75,4 +48,53 @@
             </div>
         </div>
     </div>
+    <script>
+        "use strict";
+        // JavaScript now has adopted Block Scope into it core. I have used ECMA6script(ES6) into this app.
+        // define Function to return data to HTML
+        const myFunction = (data) => {
+
+            let output = "", readMore;
+
+            output += "<div class=\"col-12\"><h2 class=\"text-center mb-3 text-white\">Belt Ranking System</h2></div>";
+
+            // for loop to return data from txt file
+            for (let i = 0; i < data.length; i++) {
+
+                let id = data[i].id,
+                    string = data[i].meaning,
+                    trimString = string.substring(0, 200) + '...';
+
+                output += '<div class="col-3">' +
+                    '<div class="card text-white bg-secondary mb-3">' +
+                    '<div class="card-header">' + data[i].name + '</div>';
+
+                output += '<div class="card-body">'+
+                    '<h5 class="card-title">' + data[i].duration +  '</h5>'+
+                    '<p class="card-text">' + trimString + ' <a href="#" id="id-' + id + '" class="d-block" data-toggle="modal" data-target="#readMoreModalCenter-' + id + '">read more</a></p>'+
+                    '<div class="modal fade" id="readMoreModalCenter-' + id + '" tabindex="-1" role="dialog" aria-labelledby="readMoreModalCenterTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document">';
+
+                output += '<div class="modal-content"><div id="readMore" class="modal-body text-secondary">' + data[i].meaning + '</div></div></div></div></div></div></div>';
+
+            }
+            // This is my return statement to output the array into HTML
+            document.getElementById("belt_ranking_system").innerHTML = output;
+        }
+
+        // callback function to get data **in progress**
+        const init = (callback) => {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', callback, true);
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4 && xhr.status === 200 ) {
+                    let data = JSON.parse(xhr.responseText);
+                    return myFunction(data);
+                }
+            }
+            xhr.send(null);
+        }
+
+        // init('json/data.txt');
+
+    </script>
 @endsection
